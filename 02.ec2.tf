@@ -16,6 +16,10 @@ resource "aws_instance" "vec_prd_ecs_pub_2a" {
   associate_public_ip_address = true
   private_ip                  = "10.250.4.240" # 고정 IP (빠뜨리셨네요!)
 
+  depends_on = [
+    aws_security_group.vec_prd_ecs_pub_2a_sg
+  ]
+
   root_block_device {
     volume_size = "8"
     volume_type = "gp2"
